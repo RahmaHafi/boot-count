@@ -1,12 +1,18 @@
-
-
+import { useState } from 'react'
+import Counter from './components/Counter'
 
 function App() {
+
+  const [countShow, setCountShow] = useState(true)
+    const handelToggle = () => {
+        setCountShow(prevCountShow => setCountShow(!prevCountShow))
+    }
   return (
-    <div>
-     <h1>this is from the app component</h1>
-     <button className="btn btn-primary "> Ok </button>
-     </div>
+    <div className="app">
+            
+            <button className="buttonToggle" onClick={handelToggle} > {countShow ? "Hide counter" : "Show counter"}</button>
+            {countShow && <Counter />}
+        </div>
   );
 }
 
